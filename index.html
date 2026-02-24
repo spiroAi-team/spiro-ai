@@ -14,6 +14,21 @@
       color: #ffffff;
       scroll-behavior: smooth;
     }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    header, section, footer {
+      position: relative;
+      z-index: 1;
+    }
     header {
       min-height: 100vh;
       display: flex;
@@ -167,7 +182,7 @@
 <footer>
   <h3>Bharati Vidhyapeeth College of Engineering, Kolhapur (Diploma)</h3>
   <p><strong>Team Members:</strong> Shafiya Tamboli | Sadaf Sherkar | Azim Pathan</p>
-  <p>Mini Project – Spiro AI</p>
+  <p>Project – Spiro AI</p>
 </footer>
 
 </body>
