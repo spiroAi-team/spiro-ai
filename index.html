@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spiro AI – Project Overview</title>
+  <link rel="icon" type="image/png" href="logo.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -70,6 +71,14 @@
       width: 140px;
       margin-bottom: 10px;
       filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.4));
+      animation: pulse 3s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.95; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.95; }
     }
 
     header p {
@@ -171,7 +180,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- Video Background -->
   <video autoplay muted loop playsinline class="bg-video">
@@ -184,7 +193,7 @@
 
   <!-- ================= HEADER ================= -->
   <header>
-    <img src="logo.png" alt="Spiro AI Logo" class="logo">
+    <a href="#top"><img src="logo.png" alt="Spiro AI Logo" class="logo"></a>
     <h1>Spiro AI</h1>
     <p>An AI-Based Intelligent Spirometry System for Smart Respiratory Health Monitoring</p>
     <a href="#about" class="btn">Explore Project</a>
