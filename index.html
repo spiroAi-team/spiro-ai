@@ -4,31 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spiro AI – Project Overview</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: url('bg-lungs.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffffff;
-      scroll-behavior: smooth;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #ffffff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* ================= VIDEO BACKGROUND ================= */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* Dark overlay for readability */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
     }
 
     header, section, footer {
       position: relative;
       z-index: 1;
     }
+
+    /* ================= HEADER ================= */
     header {
       min-height: 100vh;
       display: flex;
@@ -38,153 +58,208 @@
       text-align: center;
       padding: 20px;
     }
+
     header h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 700;
       color: #00e5ff;
     }
+
     header p {
       font-size: 1.2rem;
-      max-width: 700px;
+      max-width: 750px;
       margin-top: 15px;
       opacity: 0.9;
     }
+
     .btn {
       margin-top: 30px;
-      padding: 12px 28px;
+      padding: 12px 30px;
       border-radius: 30px;
       border: none;
       background: #00e5ff;
       color: #000;
       font-weight: 600;
       cursor: pointer;
-      transition: 0.3s;
       text-decoration: none;
+      transition: 0.3s ease;
     }
-    .btn:hover { background: #00bcd4; }
+
+    .btn:hover {
+      background: #00bcd4;
+      transform: scale(1.05);
+    }
+
+    /* ================= SECTIONS ================= */
     section {
       padding: 80px 10%;
     }
+
     section h2 {
       text-align: center;
-      font-size: 2.3rem;
+      font-size: 2.4rem;
       margin-bottom: 40px;
       color: #00e5ff;
     }
+
+    .flow {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+
+    /* ================= CARDS ================= */
     .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
     }
+
     .card {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.1);
       padding: 25px;
       border-radius: 20px;
-      transition: 0.3s;
+      backdrop-filter: blur(6px);
+      transition: 0.3s ease;
+      text-align: center;
     }
+
     .card:hover {
-      transform: translateY(-10px);
-      background: rgba(255,255,255,0.15);
+      transform: translateY(-10px) scale(1.03);
+      background: rgba(255, 255, 255, 0.18);
     }
+
     .card h3 {
       margin-bottom: 10px;
       color: #00e5ff;
     }
-    .flow {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.9;
-      font-size: 1.05rem;
-    }
+
+    /* ================= FOOTER ================= */
     footer {
-      background: #000;
+      background: rgba(0, 0, 0, 0.85);
       text-align: center;
-      padding: 30px 10px;
+      padding: 35px 15px;
     }
-    footer h3 { color: #00e5ff; margin-bottom: 10px; }
-    footer p { font-size: 0.95rem; opacity: 0.85; }
+
+    footer h3 {
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+      section {
+        padding: 60px 7%;
+      }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Spiro AI</h1>
-  <p>An AI-Based Intelligent Spirometry System for Smart Respiratory Health Monitoring</p>
-  <a href="#about" class="btn">Explore Project</a>
-</header>
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="bg-lungs.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-<section id="about">
-  <h2>About the Project</h2>
-  <div class="flow">
-    Spiro AI is an innovative healthcare project designed to analyze lung function using
-    sensor-based spirometry and artificial intelligence. The system measures airflow and
-    lung volume parameters to assist in early detection of respiratory disorders.
-  </div>
-</section>
+  <!-- Dark overlay -->
+  <div class="overlay"></div>
 
-<section>
-  <h2>Problem Statement</h2>
-  <div class="flow">
-    Respiratory diseases such as asthma and COPD often remain undiagnosed due to limited
-    access to affordable and accurate spirometry tools. Traditional systems are expensive
-    and require trained professionals.
-  </div>
-</section>
+  <!-- ================= HEADER ================= -->
+  <header>
+    <h1>Spiro AI</h1>
+    <p>An AI-Based Intelligent Spirometry System for Smart Respiratory Health Monitoring</p>
+    <a href="#about" class="btn">Explore Project</a>
+  </header>
 
-<section>
-  <h2>Our Solution – Spiro AI</h2>
-  <div class="card-container">
-    <div class="card">
-      <h3>Smart Sensors</h3>
-      <p>Captures real-time airflow and breathing patterns.</p>
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <h2>About the Project</h2>
+    <div class="flow">
+      Spiro AI is an innovative healthcare solution designed to analyze lung function using
+      sensor-based spirometry and artificial intelligence. The system evaluates airflow and
+      lung volume parameters to support early detection of respiratory disorders.
     </div>
-    <div class="card">
-      <h3>Mathematical Analysis</h3>
-      <p>Applies airflow and lung volume formulas to raw sensor data.</p>
+  </section>
+
+  <!-- ================= PROBLEM ================= -->
+  <section>
+    <h2>Problem Statement</h2>
+    <div class="flow">
+      Respiratory diseases such as asthma and COPD often remain undiagnosed due to limited
+      access to affordable and accurate spirometry tools. Conventional systems are costly
+      and require skilled operators.
     </div>
-    <div class="card">
-      <h3>AI Interpretation</h3>
-      <p>AI model analyzes results and predicts respiratory health status.</p>
+  </section>
+
+  <!-- ================= SOLUTION ================= -->
+  <section>
+    <h2>Our Solution – Spiro AI</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Smart Sensors</h3>
+        <p>Collect real-time airflow and breathing patterns.</p>
+      </div>
+      <div class="card">
+        <h3>Mathematical Processing</h3>
+        <p>Applies airflow and lung volume formulas on raw data.</p>
+      </div>
+      <div class="card">
+        <h3>AI Analysis</h3>
+        <p>AI model interprets data and predicts respiratory health.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h2>How It Works</h2>
-  <div class="flow">
-    1. User performs breathing test using the sensor device.<br>
-    2. Airflow data is collected in real time.<br>
-    3. Lung parameters such as FVC and FEV are calculated.<br>
-    4. AI model analyzes patterns and compares with standard ranges.<br>
-    5. Results are displayed instantly on the system interface.
-  </div>
-</section>
+  <!-- ================= WORKING ================= -->
+  <section>
+    <h2>How It Works</h2>
+    <div class="flow">
+      1. User performs breathing test using sensor device<br>
+      2. Airflow data is captured in real time<br>
+      3. Lung parameters such as FVC and FEV are calculated<br>
+      4. AI model analyzes results<br>
+      5. Health insights are displayed instantly
+    </div>
+  </section>
 
-<section>
-  <h2>Technologies Used</h2>
-  <div class="card-container">
-    <div class="card">Airflow Sensor</div>
-    <div class="card">Microcontroller</div>
-    <div class="card">Python & Machine Learning</div>
-    <div class="card">Web Technologies (HTML, CSS)</div>
-    <div class="card">QR Code Integration</div>
-  </div>
-</section>
+  <!-- ================= TECHNOLOGIES ================= -->
+  <section>
+    <h2>Technologies Used</h2>
+    <div class="card-container">
+      <div class="card">Airflow Sensor</div>
+      <div class="card">Microcontroller</div>
+      <div class="card">Python & Machine Learning</div>
+      <div class="card">HTML & CSS</div>
+      <div class="card">QR Code Integration</div>
+    </div>
+  </section>
 
-<section>
-  <h2>Future Scope</h2>
-  <div class="flow">
-    The project can be extended into a mobile application, cloud-based health records,
-    hospital integration, and remote respiratory monitoring using IoT and AI.
-  </div>
-</section>
+  <!-- ================= FUTURE ================= -->
+  <section>
+    <h2>Future Scope</h2>
+    <div class="flow">
+      The project can be extended into a mobile application, cloud-based health records,
+      hospital integration, and remote respiratory monitoring using IoT and AI technologies.
+    </div>
+  </section>
 
-<footer>
-  <h3>Bharati Vidhyapeeth College of Engineering, Kolhapur (Diploma)</h3>
-  <p><strong>Team Members:</strong> Shafiya Tamboli | Sadaf Sherkar | Azim Pathan</p>
-  <p>Project – Spiro AI</p>
-</footer>
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <h3>Bharati Vidhyapeeth College of Engineering, Kolhapur (Diploma)</h3>
+    <p><strong>Team Members:</strong> Shafiya Tamboli | Sadaf Sherkar | Azim Pathan</p>
+    <p>Project – Spiro AI</p>
+  </footer>
 
 </body>
 </html>
-
