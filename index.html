@@ -67,13 +67,26 @@
       margin-top: 15px;
     }
 
-    .logo {
-      width: 140px;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.4));
-      animation: pulse 3s ease-in-out infinite;
-      cursor: pointer;
-    }
+ .logo {
+  width: 170px;
+  height: 170px;              /* SAME width & height = perfect circle */
+  border-radius: 50%;         /* makes it circular */
+  object-fit: cover;          /* prevents stretching */
+  background-color: white;    /* clean background */
+  padding: 12px;              /* spacing inside circle */
+  display: block;
+  margin: 0 auto 18px;
+  position: relative;
+  z-index: 11;
+
+  /* aesthetic effects */
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
 
     @keyframes pulse {
       0% { transform: scale(1); opacity: 0.95; }
@@ -294,5 +307,6 @@
 
 </body>
 </html>
+
 
 
